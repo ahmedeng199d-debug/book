@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090404" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Market Code" />
+  <meta name="application-name" content="Market Code" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <title>Market Code Admin</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="background-orbit"></div>
+  <div class="gold-noise"></div>
+
+  <main class="admin-shell">
+    <section class="admin-card">
+      <p class="eyebrow">mofx.02 Admin</p>
+      <h1>Access Key Generator</h1>
+      <p>Login with your admin Google account, then generate lifetime access keys. Each key can be used by one person only. You can also stop any generated key and instantly remove access from the linked user.</p>
+
+      <div class="access-status" id="adminStatus">Please login with the admin email.</div>
+
+      <div class="admin-actions">
+        <button id="adminLoginBtn" class="btn primary" type="button">Login with Google</button>
+        <button id="generateKeyBtn" class="btn primary hidden" type="button">Generate Key</button>
+        <button id="copyKeyBtn" class="btn ghost hidden" type="button">Copy Key</button>
+        <button id="adminLogoutBtn" class="btn ghost hidden" type="button">Logout</button>
+        <a href="./index.html" class="btn ghost" style="text-decoration:none">Back to Book</a>
+      </div>
+
+      <div id="generatedKey" class="generated-key hidden"></div>
+
+      <h3>Latest generated keys</h3>
+      <div id="keyList" class="key-list"></div>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script src="./firebase-config.js"></script>
+  <script src="./admin.js"></script>
+</body>
+</html>

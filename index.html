@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090404" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Market Code" />
+  <meta name="application-name" content="Market Code" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <title>Market Code</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="background-orbit"></div>
+  <div class="gold-noise"></div>
+
+  <main class="app-shell">
+    <section id="landing" class="landing show">
+      <div class="hero-card">
+        <div class="hero-cover-wrap">
+          <img id="heroCover" alt="Market Code cover" class="hero-cover" />
+          <div class="cover-glow"></div>
+        </div>
+
+        <div class="hero-content">
+          <img src="./app-icon-192.png" alt="Market Code app icon" class="landing-app-icon" />
+          <p class="eyebrow">Premium Trading Book</p>
+          <h1>MARKET<br><span>CODE</span></h1>
+          <p class="subtitle">Login with Google and enter your lifetime access key to unlock the Market Code book.</p>
+
+          <div class="access-panel" id="accessPanel">
+            <div class="access-status" id="authStatus">Please login first.</div>
+            <button id="googleLoginBtn" class="btn primary" type="button">Login with Google</button>
+            <div id="keyArea" class="key-area hidden">
+              <input id="accessKeyInput" class="key-input" type="text" placeholder="Enter access key" autocomplete="off" />
+              <button id="claimKeyBtn" class="btn ghost" type="button">Activate Key</button>
+            </div>
+            <button id="logoutBtn" class="btn ghost hidden" type="button">Logout</button>
+          </div>
+
+          <div class="hero-actions">
+            <button id="enterBtn" class="btn primary">Open Book</button>
+            <button id="previewBtn" class="btn ghost">Access Required</button>
+          </div>
+
+          <div class="hero-meta">
+            <span>mofx.02</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reader" class="reader" aria-label="Market Code Reader">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark app-brand-mark"><img src="./app-icon-192.png" alt="Market Code" /></span>
+          <div>
+            <strong>MARKET CODE</strong>
+            <small id="pageLabel">Page 1 / 95</small>
+          </div>
+        </div>
+
+        <div class="top-actions pdf-toolbar" aria-label="PDF style toolbar">
+          <button id="thumbToggle" class="pdf-tool" title="Show pages">☰</button>
+          <span class="pdf-divider"></span>
+          <button id="toolbarPrevBtn" class="pdf-tool" type="button" title="Previous page">‹</button>
+          <label class="page-jump" title="Current page">
+            <input id="pageNumberInput" type="number" min="1" max="95" value="1" inputmode="numeric" />
+            <span>/</span>
+            <span id="totalPagesMini">95</span>
+          </label>
+          <button id="toolbarNextBtn" class="pdf-tool" type="button" title="Next page">›</button>
+          <span class="pdf-divider"></span>
+          <button id="zoomOutBtn" class="pdf-tool" type="button" title="Zoom out">−</button>
+          <button id="zoomValueBtn" class="pdf-zoom-value" type="button" title="Reset zoom">100%</button>
+          <button id="zoomInBtn" class="pdf-tool" type="button" title="Zoom in">+</button>
+          <span class="pdf-divider"></span>
+          <button id="fitPageBtn" class="pdf-tool wide active" type="button" title="Fit full page">Fit Page</button>
+          
+          <button id="fullBtn" class="pdf-tool" title="Fullscreen">⛶</button>
+          <button id="exitBtn" class="pdf-tool danger" title="Exit">✕</button>
+        </div>
+      </header>
+
+      <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+
+      <aside id="thumbPanel" class="thumb-panel" aria-label="Page thumbnails">
+        <div class="thumb-head">
+          <strong>Pages</strong>
+          <button id="closeThumbs" class="mini-btn">×</button>
+        </div>
+        <div id="thumbList" class="thumb-list"></div>
+      </aside>
+
+      <div class="stage-wrap">
+        <button id="prevBtn" class="nav-btn left" aria-label="Previous page">‹</button>
+
+        <div id="bookStage" class="book-stage">
+          <div id="pageShell" class="page-shell">
+            <img id="pageImage" class="book-page" alt="Market Code page 1" />
+          </div>
+          <div id="errorBox" class="error-box hidden">
+            <strong>Page image did not load.</strong>
+            <span>The page image is embedded inside script.js. Try refreshing the page.</span>
+          </div>
+        </div>
+
+        <button id="nextBtn" class="nav-btn right" aria-label="Next page">›</button>
+      </div>
+
+      <footer class="reader-footer">
+        <span>Use keyboard arrows or swipe</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script src="./firebase-config.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

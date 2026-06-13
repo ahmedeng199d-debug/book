@@ -1,0 +1,15 @@
+IMPORTANT FIRESTORE RULES UPDATE
+
+For the new Stop Key button, admins must be allowed to update accessKeys and users.
+Use rules that allow your admin emails to create/update/delete accessKeys and update users.
+
+Minimum admin condition example:
+function isAdmin() {
+  return request.auth != null && (
+    request.auth.token.email == "ahmedeng199d@gmail.com" ||
+    request.auth.token.email == "maria22zharki@gmail.com"
+  );
+}
+
+For accessKeys: allow create, update, delete: if isAdmin();
+For users: allow update: if isAdmin() || request.auth.uid == userId;
